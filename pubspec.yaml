@@ -58,9 +58,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/categories/
-    - assets/images/images_alta/
+    - assets/banners/
+    - assets/dishes/
     - assets/images/
     - assets/marca_logo_simbolo/
+    - assets/others/
+    - assets/restaurants/
 
 
 

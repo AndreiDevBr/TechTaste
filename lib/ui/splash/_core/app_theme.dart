@@ -5,6 +5,10 @@ abstract class AppTheme {
   static ThemeData appTheme = ThemeData.dark().copyWith(
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
+        textStyle: WidgetStateProperty.all(const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.w900,
+        )),
         foregroundColor: WidgetStateProperty.all(Colors.black),
         backgroundColor: WidgetStateColor.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) {

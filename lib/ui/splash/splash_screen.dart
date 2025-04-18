@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_techtaste/ui/splash/_core/app_colors.dart';
+import 'package:flutter_techtaste/ui/splash/home/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -10,10 +11,13 @@ class SplashScreen extends StatelessWidget {
         backgroundColor: AppColors.backgroundColor,
         body: Stack(
           children: [
-            Image.asset('assets/marca_logo_simbolo/Banner.png'),
+            Image.asset(
+              'assets/banners/banner_splash.png',
+              width: double.infinity,
+            ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                padding: const EdgeInsets.symmetric(horizontal: 70.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 32,
@@ -38,9 +42,19 @@ class SplashScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () {}, child: Text("Bora!"))),
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return HomeScreen();
+                            }),
+                          );
+                        },
+                        child: Text("Bora!"),
+                      ),
+                    ),
                   ],
                 ),
               ),
