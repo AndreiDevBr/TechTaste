@@ -24,9 +24,12 @@ class SplashScreen extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/marca_logo_simbolo/Logo home@2x.png',
-                      width: 192,
+                      width: 800,
                     ),
                     Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Um parceiro para a sua",
@@ -36,7 +39,7 @@ class SplashScreen extends StatelessWidget {
                           "melhor experiência culinária!",
                           style: TextStyle(
                               color: AppColors.mainColor,
-                              fontSize: 22,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -52,7 +55,10 @@ class SplashScreen extends StatelessWidget {
                             }),
                           );
                         },
-                        child: Text("Bora!"),
+                        child: Text(
+                          "Bora!",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ],

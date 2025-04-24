@@ -24,10 +24,11 @@ class CategoryWidget extends StatelessWidget {
           Image.asset(
             "assets/categories/${category.toLowerCase()}.png",
             height: 48,
+            width: 48,
           ),
           Text(
             category,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
           ),
         ],
       ),
