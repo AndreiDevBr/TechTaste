@@ -1,3 +1,5 @@
+import 'package:flutter_techtaste/ui/splash/home/restaurant/dish/dish.dart';
+
 class Restaurant {
   String id;
   String imagePath;
@@ -6,6 +8,7 @@ class Restaurant {
   double stars;
   int distance;
   List<String> categories;
+  List<Dish> dishes;
 
   Restaurant(
       {required this.id,
@@ -14,7 +17,8 @@ class Restaurant {
       required this.description,
       required this.stars,
       required this.distance,
-      required this.categories});
+      required this.categories,
+      required this.dishes});
 
   Map<String, dynamic> toMap() {
     return {
@@ -24,20 +28,24 @@ class Restaurant {
       'description': description,
       'stars': stars,
       'distance': distance,
-      'categories': categories
+      'categories': categories,
+      'dishes': dishes.map((dish) => dish.toMap()).toList(),
     };
   }
 
   factory Restaurant.fromMap(Map<String, dynamic> map) {
     return Restaurant(
-      id: map['id'],
-      imagePath: map['imagePath'],
-      name: map['name'],
-      description: map['description'],
-      stars: map['stars'],
-      distance: map['distance'],
-      categories: List<String>.from(map['categories']),
-    );
+        id: map['id'],
+        imagePath: map['imagePath'],
+        name: map['name'],
+        description: map['description'],
+        stars: map['stars'],
+        distance: map['distance'],
+        categories: List<String>.from(
+          map['categories'],
+        ),
+        dishes:
+            List<Dish>.from(map['dishes'].map((dish) => Dish.fromMap(dish))));
   }
   @override
   String toString() {

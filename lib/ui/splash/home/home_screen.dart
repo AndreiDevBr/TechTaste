@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_techtaste/data/categories_data.dart';
 import 'package:flutter_techtaste/data/restaurants_data.dart';
 import 'package:flutter_techtaste/model/restaurant.dart';
+import 'package:flutter_techtaste/ui/splash/_core/widgets/appBar.dart';
 import 'package:flutter_techtaste/ui/splash/home/widgets/category_widget.dart';
 import 'package:flutter_techtaste/ui/splash/home/widgets/restaurant_widget.dart';
 import 'package:flutter_techtaste/ui/splash/splash_screen.dart';
@@ -46,11 +47,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      appBar: AppBar(
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-        ],
-      ),
+      appBar: getAppBar(context: context),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(

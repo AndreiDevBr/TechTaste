@@ -5,6 +5,7 @@ import 'package:flutter_techtaste/data/restaurants_data.dart';
 // Importa a classe RestaurantsData, que gerencia os dados dos restaurantes.
 
 import 'package:flutter_techtaste/ui/splash/_core/app_theme.dart';
+import 'package:flutter_techtaste/ui/splash/_core/bag_provider.dart';
 // Importa o tema personalizado da aplicação.
 
 import 'package:flutter_techtaste/ui/splash/splash_screen.dart';
@@ -32,6 +33,7 @@ void main() async {
             // Registra a instância de RestaurantsData como um provider para gerenciamento de estado.
           },
         ),
+        ChangeNotifierProvider(create: (context) => BagProvider()),
       ],
       child: MyApp(),
       // Define o widget raiz da aplicação como MyApp.
@@ -46,6 +48,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
       // Define o tema da aplicação usando o tema personalizado AppTheme.
 
