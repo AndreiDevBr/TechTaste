@@ -5,6 +5,7 @@ import 'package:flutter_techtaste/model/restaurant.dart';
 import 'package:flutter_techtaste/ui/splash/_core/widgets/appBar.dart';
 import 'package:flutter_techtaste/ui/splash/home/widgets/category_widget.dart';
 import 'package:flutter_techtaste/ui/splash/home/widgets/restaurant_widget.dart';
+import 'package:flutter_techtaste/ui/splash/home/widgets/search_foods.dart';
 import 'package:flutter_techtaste/ui/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -67,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              TextFormField(),
+              SearchFoods(),
               Text(
                 "Escolha por categoria",
                 style: TextStyle(

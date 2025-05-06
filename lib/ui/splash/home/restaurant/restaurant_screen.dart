@@ -23,26 +23,72 @@ class RestaurantScreen extends StatelessWidget {
               "Mais pedidos",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Column(
-              children: List.generate(restaurant.dishes.length, (index) {
-                Dish dish = restaurant.dishes[index];
-                return ListTile(
-                  leading: Image.asset(
-                    'assets/dishes/default.png',
-                    width: 48,
-                    height: 48,
-                  ),
-                  title: Text(
-                    dish.name,
-                  ),
-                  subtitle: Text("R\$ ${dish.price.toStringAsFixed(2)}"),
-                  trailing: IconButton(
-                      onPressed: () {
-                        context.read<BagProvider>().addAllDishes([dish]);
-                      },
-                      icon: Icon(Icons.add)),
-                );
-              }),
+            Expanded(
+              child: ListView.builder(
+                itemCount: restaurant.dishes.length,
+                itemBuilder: (context, index) {
+                  Dish dish = restaurant.dishes[index];
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    margin:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+                    clipBehavior: Clip.antiAlias,
+                    elevation: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/dishes/default.png',
+                          width: double.infinity,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                        Container(
+                          color: Color(0xFF2C2C2C), // Fundo escuro
+                          padding: EdgeInsets.all(12.0),
+                          width: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                dish.name,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                "R\$ ${dish.price.toStringAsFixed(2)}",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              if (dish.description != null &&
+                                  dish.description!.isNotEmpty)
+                                SizedBox(height: 8),
+                              if (dish.description != null &&
+                                  dish.description!.isNotEmpty)
+                                Text(
+                                  dish.description!,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

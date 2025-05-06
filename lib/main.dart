@@ -30,7 +30,7 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) {
             return restaurantsData;
-            // Registra a instância de RestaurantsData como um provider para gerenciamento de estado.
+            // Registra instância de RestaurantsData como um provider para gerenciamento de estado.
           },
         ),
         ChangeNotifierProvider(create: (context) => BagProvider()),
